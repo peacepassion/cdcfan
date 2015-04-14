@@ -1,0 +1,76 @@
+2015-04-14 20:03:18,800 - food - DEBUG - receive a GET request
+2015-04-14 20:03:18,800 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:03:18,880 - food - DEBUG - receive a GET request
+2015-04-14 20:03:18,880 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:03:19,049 - food - DEBUG - receive a GET request
+2015-04-14 20:03:19,050 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:03:52,448 - food - DEBUG - receive a GET request
+2015-04-14 20:03:52,449 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:03:57,512 - food - DEBUG - receive a GET request
+2015-04-14 20:03:57,512 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:03:57,838 - food - DEBUG - receive a GET request
+2015-04-14 20:03:57,848 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:04:28,241 - food - DEBUG - receive a GET request
+2015-04-14 20:04:28,241 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:04:28,242 - food - DEBUG - {'request path': '/', 'client content': '', 'command': 'GET', 'client addr': ('127.0.0.1', 49358)}
+2015-04-14 20:04:28,242 - food - DEBUG - basic info <<<<<<<
+2015-04-14 20:04:28,805 - food - DEBUG - receive a GET request
+2015-04-14 20:04:28,805 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:04:28,805 - food - DEBUG - {'request path': '/favicon.ico', 'client content': '', 'command': 'GET', 'client addr': ('127.0.0.1', 49359)}
+2015-04-14 20:04:28,806 - food - DEBUG - basic info <<<<<<<
+2015-04-14 20:04:29,121 - food - DEBUG - receive a GET request
+2015-04-14 20:04:29,122 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:04:29,124 - food - DEBUG - {'request path': '/', 'client content': '', 'command': 'GET', 'client addr': ('127.0.0.1', 49362)}
+2015-04-14 20:04:29,124 - food - DEBUG - basic info <<<<<<<
+2015-04-14 20:04:29,694 - food - DEBUG - receive a GET request
+2015-04-14 20:04:29,694 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:04:29,694 - food - DEBUG - {'request path': '/favicon.ico', 'client content': '', 'command': 'GET', 'client addr': ('127.0.0.1', 49363)}
+2015-04-14 20:04:29,694 - food - DEBUG - basic info <<<<<<<
+2015-04-14 20:07:02,857 - food - DEBUG - receive a GET request
+2015-04-14 20:07:02,857 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:07:02,858 - food - DEBUG - {'request path': '/?dfad', 'client content': '', 'command': 'GET', 'client addr': ('127.0.0.1', 49447)}
+2015-04-14 20:07:02,859 - food - DEBUG - basic info <<<<<<<
+2015-04-14 20:07:03,253 - food - DEBUG - receive a GET request
+2015-04-14 20:07:03,253 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:07:03,254 - food - DEBUG - {'request path': '/favicon.ico', 'client content': '', 'command': 'GET', 'client addr': ('127.0.0.1', 49448)}
+2015-04-14 20:07:03,254 - food - DEBUG - basic info <<<<<<<
+2015-04-14 20:17:26,478 - food - DEBUG - receive a GET request
+2015-04-14 20:17:26,479 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:17:26,483 - food - DEBUG - {'request path': '/', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.127', 50396)}
+2015-04-14 20:17:26,484 - food - DEBUG - basic info <<<<<<<
+2015-04-14 20:38:25,585 - food - DEBUG - receive a GET request
+2015-04-14 20:38:25,586 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:38:25,588 - food - DEBUG - {'request path': '/?identity=fff', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.127', 50808)}
+2015-04-14 20:38:25,588 - food - DEBUG - basic info <<<<<<<
+2015-04-14 20:39:26,552 - food - DEBUG - receive a GET request
+2015-04-14 20:39:26,553 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:39:26,553 - food - DEBUG - {'request path': '/?dfad', 'client content': '', 'command': 'GET', 'client addr': ('127.0.0.1', 50487)}
+2015-04-14 20:39:26,553 - food - DEBUG - basic info <<<<<<<
+2015-04-14 20:39:27,078 - food - DEBUG - receive a GET request
+2015-04-14 20:39:27,079 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:39:27,079 - food - DEBUG - {'request path': '/favicon.ico', 'client content': '', 'command': 'GET', 'client addr': ('127.0.0.1', 50488)}
+2015-04-14 20:39:27,079 - food - DEBUG - basic info <<<<<<<
+2015-04-14 20:49:18,659 - food - DEBUG - receive a GET request
+2015-04-14 20:49:18,660 - food - DEBUG - basic info >>>>>>>
+2015-04-14 20:49:18,661 - food - DEBUG - {'request path': '/?identity=desk', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.127', 50999)}
+2015-04-14 20:49:18,662 - food - DEBUG - basic info <<<<<<<
+2015-04-14 21:20:38,606 - food - DEBUG - receive a GET request
+2015-04-14 21:20:38,607 - food - DEBUG - basic info >>>>>>>
+2015-04-14 21:20:38,609 - food - DEBUG - {'request path': '/?identity=sjsj', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.127', 51606)}
+2015-04-14 21:20:38,610 - food - DEBUG - basic info <<<<<<<
+2015-04-14 21:20:52,207 - food - DEBUG - receive a GET request
+2015-04-14 21:20:52,208 - food - DEBUG - basic info >>>>>>>
+2015-04-14 21:20:52,209 - food - DEBUG - {'request path': '/?psid=23974', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.127', 51613)}
+2015-04-14 21:20:52,209 - food - DEBUG - basic info <<<<<<<
+2015-04-14 21:22:29,831 - food - DEBUG - receive a GET request
+2015-04-14 21:22:29,831 - food - DEBUG - basic info >>>>>>>
+2015-04-14 21:22:29,832 - food - DEBUG - {'request path': '/?identity=sd', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.127', 51653)}
+2015-04-14 21:22:29,832 - food - DEBUG - basic info <<<<<<<
+2015-04-14 21:28:10,409 - food - DEBUG - receive a GET request
+2015-04-14 21:28:10,410 - food - DEBUG - basic info >>>>>>>
+2015-04-14 21:28:10,411 - food - DEBUG - {'request path': '/?identity=', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.127', 51710)}
+2015-04-14 21:28:10,411 - food - DEBUG - basic info <<<<<<<
+2015-04-14 21:30:32,428 - food - DEBUG - receive a GET request
+2015-04-14 21:30:32,428 - food - DEBUG - basic info >>>>>>>
+2015-04-14 21:30:32,429 - food - DEBUG - {'request path': '/?identity=', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.127', 51741)}
+2015-04-14 21:30:32,429 - food - DEBUG - basic info <<<<<<<

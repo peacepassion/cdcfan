@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="dexedLibs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/appcompat_v7-ce960c03edab998c7d002157723dcb85.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/commons-net-3.3-c5c370d5d40755eb3a44872086e385c6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/json-lib-2.2.3-jdk15-bdc38fd61ca996256f9ed6fe6b086696.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/android-support-v4-24ae981cde9b58c8155b5cfa22a20bcb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/android-support-v7-appcompat-1d8fd536db8a1c251a714fe86fe35472.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
