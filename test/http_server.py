@@ -31,6 +31,7 @@ class MyHttpHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         logger.debug('basic info <<<<<<<')
         self.send_response(200)
         self.end_headers()
+        self.wfile.write('''{"exceed_count": 1, "rejected_count": 0, "succeed_count": 0, "failure_count": 0}''')
 
     def get_client_basic_info(self):
         o = urlparse.urlparse(self.path)

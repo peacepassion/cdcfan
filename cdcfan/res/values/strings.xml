@@ -12,6 +12,15 @@
     <string name="xiadan">下单</string>
     <string name="wancan">晚餐</string>
     <string name="success">开饭了</string>
-    <string name="fail">请输入正确的用户名</string>
+    <string name="fail">用户名: %s 登陆失败</string>
+    <string name="fail_empty">请输入用户名</string>
+    <string name="log_out">退出登陆</string>
+
+    <string name="order_fail">订餐失败， 原因：%s</string>
+
+    <string name="succ_des">订餐成功</string>
+    <string name="exceed_des">订餐份数过多</string>
+    <string name="overtime_des">不在订餐时间内</string>
+    <string name="fail_des">不明原因</string>
 
 </resources>

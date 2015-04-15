@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MM">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="MW" parent="MM">
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="WM" parent="MM">
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="WW">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="MZero" parent="MM">
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="ZeroM" parent="MM">
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="ZeroW" parent="WW">
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="MM.CommonVerticalLL">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="MW.CommonVerticalLL">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="WM.CommonVerticalLL">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="MW.CommonHorizontalLL">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="MM.CommonHorizontalLL">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="MM.CommonScrollView">
+        <item name="android:fillViewport">true</item>
+    </style>
+
+    <style name="CommonIcon" parent="WW">
+    </style>
+</resources>
