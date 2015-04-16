@@ -33,10 +33,12 @@
     <color name="red3">#FFE20919</color>
     <color name="hint_color">#bbbbbb</color>
     <color name="ui_background">#e7e7e7</color>
-    <color name="blue">#0088cc</color>
+    <color name="blue">#01579b</color>
     <color name="blue2">#1F8ECC</color>
     <color name="blue3">#19253A</color>
     <color name="blue4">#0084CB</color>
+    <color name="blue5">#0088cc</color>
+    <color name="blue6">#1E88E5</color>
     <color name="dialog_text_link_fix">#FFF</color>
     <color name="launch_app_bg">#D0000000</color>
     <color name="light_gray">#FF555555</color>

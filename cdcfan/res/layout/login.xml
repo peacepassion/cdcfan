@@ -1,54 +1,62 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/MM">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MM.CommonScrollView">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:orientation="vertical">
+    <FrameLayout style="@style/MM">
 
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/dinner_72"/>
+        <LinearLayout style="@style/MM.CommonVerticalLL">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/trend_dinner"
-            android:textSize="18sp" />
+            <FrameLayout style="@style/MZero"
+                android:layout_height="128dp"
+                android:background="@color/blue">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center|center_horizontal|center_vertical" >
+                <TextView style="@style/WW"
+                    android:text="@string/app_name"
+                    android:textSize="30dp"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:drawableLeft="@drawable/dinner_72"
+                    android:layout_marginBottom="20dp"
+                    android:drawablePadding="10dp"/>
 
-            <TextView
-                android:id="@+id/basic_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/username"
-                android:textSize="18sp"/>
+            </FrameLayout>
 
-            <EditText
-                android:id="@+id/userName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/editText"/>
+            <LinearLayout style="@style/MW"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/basic_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/username"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:id="@+id/userName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/gray2"
+                    android:hint="@string/username_hint"/>
+
+            </LinearLayout>
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/login"
+                style="@style/MW"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/blue"
+                android:textColor="@color/white"
+                android:text="@string/login"
+                android:textSize="20sp"/>
+
         </LinearLayout>
 
-        <Button
-            android:id="@+id/login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/login"
-            android:textSize="18sp"/>
+        <include android:id="@+id/loading"
+            layout="@layout/loading"/>
 
-    </LinearLayout>
+    </FrameLayout>
 
-    <include android:id="@+id/loading"
-        layout="@layout/loading"/>
-
-</FrameLayout>
+</ScrollView>
