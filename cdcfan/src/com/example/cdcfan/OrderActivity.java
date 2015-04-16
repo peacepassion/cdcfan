@@ -17,10 +17,11 @@ import java.io.UnsupportedEncodingException;
 public class OrderActivity extends BaseActivity implements UserServiceCallback, OnClickListener {
 
     private TextView mBasicInfo;
-    private EditText mCounter;
+    private EditText mTypeSelector;
     private Button mOrderBtn;
     private Button mLogoutBtn;
     private OrderResult mOrderResult;
+    private Button mCheckOrderBtn;
 
     User mUser;
 
@@ -45,11 +46,14 @@ public class OrderActivity extends BaseActivity implements UserServiceCallback, 
         super.initView();
         mBasicInfo = (TextView) findViewById(R.id.basic_info);
         mBasicInfo.setText(mUser.name + " / " + mUser.depcode);
-        mCounter = (EditText) findViewById(R.id.counter);
+        mTypeSelector = (EditText) findViewById(R.id.counter);
         mOrderBtn = (Button) findViewById(R.id.order);
         mOrderBtn.setOnClickListener(this);
         mLogoutBtn = (Button) findViewById(R.id.log_out);
         mLogoutBtn.setOnClickListener(this);
+        mCheckOrderBtn = (Button) findViewById(R.id.check_order);
+        mCheckOrderBtn.setOnClickListener(this);
+
         showOrderSuccPage(false);
         showOrderFailPage(false);
     }
@@ -65,7 +69,7 @@ public class OrderActivity extends BaseActivity implements UserServiceCallback, 
         int id = v.getId();
         if (id == R.id.order) {
             try {
-                mUserService.startOrder(mUser.psid, mUser.depcode);
+                mUserService.startOrder(mUser.psid, mUser.depcode, mRes.getString(R.string.order_param_order_dev_val));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
                 showToast("fail to build post body");
@@ -77,6 +81,10 @@ public class OrderActivity extends BaseActivity implements UserServiceCallback, 
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
             finish();
+        } else if (id == R.id.check_order) {
+            Intent intent = new Intent(this, CancelOrderActivity.class);
+            intent.putExtra(LoginActivity.KEY_PSID, mUser.psid);
+            startActivity(intent);
         }
     }
 
@@ -85,7 +93,7 @@ public class OrderActivity extends BaseActivity implements UserServiceCallback, 
     }
 
     @Override
-    public void onCheckOrderReturn(boolean flag, String jsonBody) {
+    public void onOrderReturn(boolean flag, String jsonBody) {
         Log.d("CDC", "order result: " + flag + ", body: " + jsonBody);
         showLoadingPage(false);
         if (flag && parseResult(jsonBody)) {
@@ -93,6 +101,16 @@ public class OrderActivity extends BaseActivity implements UserServiceCallback, 
         } else {
             showOrderFailPage(false);
         }
+    }
+
+    @Override
+    public void onCheckOrderReturn(boolean flag, String jsonBody) {
+
+    }
+
+    @Override
+    public void onCancelOrderReturn(boolean flag, String jsonBody) {
+
     }
 
     private boolean parseResult(String jsonObj) {
@@ -122,7 +140,7 @@ public class OrderActivity extends BaseActivity implements UserServiceCallback, 
 
     private void showOrderSuccPage(boolean flag) {
         // TODO
-        showLoadingPage(flag);
+        showLoadingPage(false);
     }
 
     private void showOrderFailPage(boolean flag) {
@@ -145,6 +163,21 @@ public class OrderActivity extends BaseActivity implements UserServiceCallback, 
 
         public String getDescription(Resources res) {
             return res.getString(mDescriptionID);
+        }
+    }
+
+    static enum OrderType {
+        DINNER(R.string.order_type_dinner),
+        LUNCH(R.string.order_type_lunch);
+
+        private int mDesID;
+
+        OrderType(int id) {
+            mDesID = id;
+        }
+
+        public String getDescription(Resources res) {
+            return res.getString(mDesID);
         }
     }
 

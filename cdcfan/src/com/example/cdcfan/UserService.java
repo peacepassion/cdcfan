@@ -3,20 +3,14 @@ package com.example.cdcfan;
 import android.content.Context;
 import android.content.res.Resources;
 import android.net.Uri;
-import android.net.wifi.p2p.WifiP2pManager.UpnpServiceResponseListener;
 import android.util.Log;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 import org.apache.http.Header;
 import org.apache.http.entity.StringEntity;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLEncoder;
 
 public class UserService {
 
@@ -51,14 +45,14 @@ public class UserService {
     }
 
     public void startCheckUser(String userName) {
-        String url = Uri.parse(mDomain).buildUpon().appendPath(mRes.getString(R.string.login_path))
+        String url = Uri.parse(mDomain).buildUpon().appendEncodedPath(mRes.getString(R.string.login_path))
                 .appendQueryParameter(mContext.getResources().getString(R.string.login_param), userName)
-                .toString();
+                .build().toString();
         Log.d("CDC", "start checking user, url: " + url);
         mHttpClient.get(mContext, url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                Log.d("CDC", "check succ");
+                Log.d("CDC", "check user succ");
                 if (mListener != null) {
                     mListener.onCheckUserReturn(true, new String(responseBody));
                 }
@@ -77,18 +71,42 @@ public class UserService {
 
     }
 
-    public void startOrder(String psid, String depcode) throws UnsupportedEncodingException {
-        String url = Uri.parse(mDomain).buildUpon().appendPath(mRes.getString(R.string.order_path)).toString();
-        StringEntity postBody = new StringEntity("{" + "\"" + mRes.getString(R.string.order_param_order) + "\"" +  " : "
-                + mRes.getString(R.string.order_param_order_dev_val) + ", "
-                + "\"" + mRes.getString(R.string.order_param_psid) + "\" : " + psid + ", "
-                + "\"" + mRes.getString(R.string.order_param_depcode) + "\" : " + depcode + "}");
+    public void startOrder(String psid, String depcode, String type) throws UnsupportedEncodingException {
+        String url = Uri.parse(mDomain).buildUpon().appendEncodedPath(mRes.getString(R.string.order_path)).build().toString();
         Log.d("CDC", "start order, url: " + url);
-        Log.d("CDC", "start order, post body: " + postBody);
-        mHttpClient.post(mContext, url, postBody, null, new AsyncHttpResponseHandler() {
+        RequestParams params = new RequestParams();
+        params.put(mRes.getString(R.string.order_param_order), type);
+        params.put(mRes.getString(R.string.order_param_psid), psid);
+        params.put(mRes.getString(R.string.order_param_depcode), depcode);
+        mHttpClient.post(mContext, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 Log.d("CDC", "order succ");
+                if (mListener != null) {
+                    mListener.onOrderReturn(true, new String(responseBody));
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] haders, byte[] responseBody, Throwable error) {
+                Log.d("CDC", "order fail");
+                Log.d("CDC", "status code: " + statusCode);
+                Log.d("CDC", "error: " + error);
+                if (mListener != null) {
+                    mListener.onOrderReturn(false, "" + statusCode);
+                }
+            }
+        });
+    }
+
+    public void startCheckOrderID(String psid) {
+        String url = Uri.parse(mDomain).buildUpon().appendEncodedPath(mRes.getString(R.string.check_order_path))
+                .appendQueryParameter(mRes.getString(R.string.check_order_param_psid), psid).build().toString();
+        Log.d("CDC", "start check order, url: " + url);
+        mHttpClient.get(mContext, url, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                Log.d("CDC", "check order succ");
                 if (mListener != null) {
                     mListener.onCheckOrderReturn(true, new String(responseBody));
                 }
@@ -96,7 +114,7 @@ public class UserService {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                Log.d("CDC", "order fail");
+                Log.d("CDC", "check order fail");
                 Log.d("CDC", "status code: " + statusCode);
                 Log.d("CDC", "error: " + error);
                 if (mListener != null) {
@@ -106,8 +124,36 @@ public class UserService {
         });
     }
 
+    public void startCancelOrder(String orderID) throws UnsupportedEncodingException {
+        String url = Uri.parse(mDomain).buildUpon().appendEncodedPath(mRes.getString(R.string.cancel_order_path)).build().toString();
+        Log.d("CDC", "cancel order, url: " + url);
+        RequestParams params = new RequestParams();
+        params.put(mRes.getString(R.string.cancel_order_param_orderid), orderID);
+        mHttpClient.post(mContext, url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                Log.d("CDC", "order succ");
+                if (mListener != null) {
+                    mListener.onCancelOrderReturn(true, new String(responseBody));
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] haders, byte[] responseBody, Throwable error) {
+                Log.d("CDC", "order fail");
+                Log.d("CDC", "status code: " + statusCode);
+                Log.d("CDC", "error: " + error);
+                if (mListener != null) {
+                    mListener.onCancelOrderReturn(false, "" + statusCode);
+                }
+            }
+        });
+    }
+
     public static interface UserServiceCallback {
         void onCheckUserReturn(boolean flag, String jsonBody);
+        void onOrderReturn(boolean flag, String jsonBody);
         void onCheckOrderReturn(boolean flag, String jsonBody);
+        void onCancelOrderReturn(boolean flag, String jsonBody);
     }
 }

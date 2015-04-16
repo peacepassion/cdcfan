@@ -170,3 +170,55 @@
 2015-04-15 20:51:34,350 - food - DEBUG - basic info >>>>>>>
 2015-04-15 20:51:34,350 - food - DEBUG - {'request path': '/%2Fapi%2Fuser-search?identity=Salt%20Yang', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.100', 48639)}
 2015-04-15 20:51:34,350 - food - DEBUG - basic info <<<<<<<
+2015-04-15 21:15:41,298 - food - DEBUG - receive a GET request
+2015-04-15 21:15:41,298 - food - DEBUG - basic info >>>>>>>
+2015-04-15 21:15:41,298 - food - DEBUG - {'request path': '/%2Fapi%2Fuser-search?identity=Salt%20Yang', 'client content': '', 'command': 'GET', 'client addr': ('10.64.1.62', 10494)}
+2015-04-15 21:15:41,298 - food - DEBUG - basic info <<<<<<<
+2015-04-15 21:15:41,834 - food - DEBUG - receive a GET request
+2015-04-15 21:15:41,834 - food - DEBUG - basic info >>>>>>>
+2015-04-15 21:15:41,834 - food - DEBUG - {'request path': '/favicon.ico', 'client content': '', 'command': 'GET', 'client addr': ('10.64.1.62', 10515)}
+2015-04-15 21:15:41,834 - food - DEBUG - basic info <<<<<<<
+2015-04-15 21:44:37,440 - food - DEBUG - receive a GET request
+2015-04-15 21:44:37,441 - food - DEBUG - basic info >>>>>>>
+2015-04-15 21:44:37,441 - food - DEBUG - {'request path': '/api%2Fuser-search?identity=ss', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.100', 49396)}
+2015-04-15 21:44:37,441 - food - DEBUG - basic info <<<<<<<
+2015-04-15 21:46:45,684 - food - DEBUG - receive a GET request
+2015-04-15 21:46:45,685 - food - DEBUG - basic info >>>>>>>
+2015-04-15 21:46:45,685 - food - DEBUG - {'request path': '/api%2Fuser-search?identity=Salt%20Yang', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.100', 49426)}
+2015-04-15 21:46:45,685 - food - DEBUG - basic info <<<<<<<
+2015-04-15 21:47:02,206 - food - DEBUG - receive a GET request
+2015-04-15 21:47:02,207 - food - DEBUG - basic info >>>>>>>
+2015-04-15 21:47:02,207 - food - DEBUG - {'request path': '/api%2Fmy-orders?psid=23974', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.100', 49431)}
+2015-04-15 21:47:02,207 - food - DEBUG - basic info <<<<<<<
+2015-04-15 21:48:26,667 - food - DEBUG - receive a GET request
+2015-04-15 21:48:26,667 - food - DEBUG - basic info >>>>>>>
+2015-04-15 21:48:26,667 - food - DEBUG - {'request path': '/api%2Fuser-search?identity=Salt%20Yang', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.100', 49448)}
+2015-04-15 21:48:26,667 - food - DEBUG - basic info <<<<<<<
+2015-04-15 21:59:47,534 - food - DEBUG - receive a GET request
+2015-04-15 21:59:47,534 - food - DEBUG - basic info >>>>>>>
+2015-04-15 21:59:47,534 - food - DEBUG - {'request path': '/api%2Fuser-search?identity=Salt%20Yang', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.100', 49576)}
+2015-04-15 21:59:47,535 - food - DEBUG - basic info <<<<<<<
+2015-04-15 22:00:00,955 - food - DEBUG - receive a GET request
+2015-04-15 22:00:00,955 - food - DEBUG - basic info >>>>>>>
+2015-04-15 22:00:00,955 - food - DEBUG - {'request path': '/api%2Fmy-orders?psid=23974', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.100', 49582)}
+2015-04-15 22:00:00,955 - food - DEBUG - basic info <<<<<<<
+2015-04-15 22:01:13,566 - food - DEBUG - receive a GET request
+2015-04-15 22:01:13,566 - food - DEBUG - basic info >>>>>>>
+2015-04-15 22:01:13,567 - food - DEBUG - {'request path': '/api%2Fmy-orders?psid=23974', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.100', 49598)}
+2015-04-15 22:01:13,567 - food - DEBUG - basic info <<<<<<<
+2015-04-15 22:06:57,707 - food - DEBUG - receive a GET request
+2015-04-15 22:06:57,707 - food - DEBUG - basic info >>>>>>>
+2015-04-15 22:06:57,707 - food - DEBUG - {'request path': '/api%2Fuser-search?identity=Salt%20Yang', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.100', 49674)}
+2015-04-15 22:06:57,707 - food - DEBUG - basic info <<<<<<<
+2015-04-15 22:10:43,917 - food - DEBUG - receive a GET request
+2015-04-15 22:10:43,918 - food - DEBUG - basic info >>>>>>>
+2015-04-15 22:10:43,918 - food - DEBUG - {'request path': '/api%2Fuser-search?identity=aa', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.100', 49730)}
+2015-04-15 22:10:43,918 - food - DEBUG - basic info <<<<<<<
+2015-04-15 22:11:35,856 - food - DEBUG - receive a POST request
+2015-04-15 22:11:35,857 - food - DEBUG - basic info >>>>>>>
+2015-04-15 22:11:35,857 - food - DEBUG - {'request path': '/api%2Forder-new', 'client content': '{"order" : e-4, "psid" : 23974, "depcode" : CHT.5621E}', 'command': 'POST', 'client addr': ('10.64.82.100', 49747)}
+2015-04-15 22:11:35,857 - food - DEBUG - basic info <<<<<<<
+2015-04-15 22:12:00,003 - food - DEBUG - receive a GET request
+2015-04-15 22:12:00,003 - food - DEBUG - basic info >>>>>>>
+2015-04-15 22:12:00,003 - food - DEBUG - {'request path': '/api%2Fmy-orders?psid=23974', 'client content': '', 'command': 'GET', 'client addr': ('10.64.82.100', 49753)}
+2015-04-15 22:12:00,003 - food - DEBUG - basic info <<<<<<<

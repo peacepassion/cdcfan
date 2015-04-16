@@ -113,7 +113,17 @@ public class LoginActivity extends BaseActivity implements OnClickListener, User
     }
 
     @Override
+    public void onOrderReturn(boolean flag, String jsonBody) {
+
+    }
+
+    @Override
     public void onCheckOrderReturn(boolean flag, String jsonBody) {
+
+    }
+
+    @Override
+    public void onCancelOrderReturn(boolean flag, String jsonBody) {
 
     }
 

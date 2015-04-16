@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MM">
+
+    <include android:id="@+id/loading"
+        layout="@layout/loading"/>
+
+    <LinearLayout android:id="@+id/cancel_view"
+        style="@style/MM.CommonVerticalLL">
+
+        <TextView android:id="@+id/has_order"
+            android:text="@string/has_order"
+            style="@style/WW"/>
+
+        <Button android:id="@+id/cancel"
+            android:text="@string/cancel_order"
+            style="@style/MW"/>
+
+    </LinearLayout>
+
+</FrameLayout>

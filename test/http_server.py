@@ -20,7 +20,10 @@ class MyHttpHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         logger.debug('basic info <<<<<<<')
         self.send_response(200)
         self.end_headers()
-        self.wfile.write('''{"psid": 23974, "cnname": "\u6768\u5f6a", "name": "Salt Yang", "enname": "Salt Yang", "depcode": "CHT.5621E"}''')
+        if self.path.find('user-search'):
+            self.wfile.write('''{"psid": 23974, "cnname": "\u6768\u5f6a", "name": "Salt Yang", "enname": "Salt Yang", "depcode": "CHT.5621E"}''')
+        else:
+            self.wfile.write('''[{"orderid": 127, "status": "p", "foodprice": 20, "delivery": "e", "foodname": "\u76d2\u996d"}]''')
 
 
     def do_POST(self):

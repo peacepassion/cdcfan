@@ -23,4 +23,16 @@
     <string name="overtime_des">不在订餐时间内</string>
     <string name="fail_des">不明原因</string>
 
+    <string name="check_order">查看订餐</string>
+
+    <string name="order_type_dinner">晚餐</string>
+    <string name="order_type_lunch">午餐</string>
+
+    <string name="has_order">已定份数：%d</string>
+    <string name="cancel_order">取消订单</string>
+    <string name="cancel_order_succ">取消订单成功</string>
+
+    <string name="check_order_fail">获取订单失败</string>
+
+
 </resources>

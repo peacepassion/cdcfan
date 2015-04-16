@@ -34,6 +34,10 @@
             android:text="@string/log_out"
             style="@style/MW"/>
 
+        <Button android:id="@+id/check_order"
+            android:text="@string/check_order"
+            style="@style/MW"/>
+
     </LinearLayout>
 
     <include android:id="@+id/loading"
