@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:materialdesign="http://schemas.android.com/apk/res-auto">
     <style name="MM">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -56,4 +56,16 @@
 
     <style name="CommonIcon" parent="WW">
     </style>
+
+    <style name="MW.CommonBtn">
+        <item name="android:background">@color/blue</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="WW.CommonTV">
+        <item name="android:textColor">@color/light_gray</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
 </resources>

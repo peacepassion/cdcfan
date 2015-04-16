@@ -1,46 +1,45 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/MM">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
+    style="@style/MM.CommonScrollView">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <FrameLayout
+        style="@style/MM">
 
-        <TextView
-            android:id="@+id/basic_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_gravity="center_horizontal"
-            android:text="Test"
-            android:textSize="27sp"/>
+        <LinearLayout style="@style/MM.CommonVerticalLL">
 
-        <EditText android:id="@+id/counter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:hint="Input your number"/>
+            <include layout="@layout/header"/>
 
-        <Button
-            android:id="@+id/order"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/xiadan"
-            android:textSize="24sp"/>
+            <TextView android:text="@string/des"
+                style="@style/WW.CommonTV"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"/>
 
-        <Button android:id="@+id/log_out"
-            android:text="@string/log_out"
-            style="@style/MW"/>
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/order"
+                materialdesign:rippleSpeed="100"
+                android:layout_marginTop="20dp"
+                android:text="@string/xiadan"
+                style="@style/MW.CommonBtn"/>
 
-        <Button android:id="@+id/check_order"
-            android:text="@string/check_order"
-            style="@style/MW"/>
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/check_order"
+                materialdesign:rippleSpeed="100"
+                android:layout_marginTop="20dp"
+                android:text="@string/check_order"
+                style="@style/MW.CommonBtn"/>
 
-    </LinearLayout>
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/log_out"
+                materialdesign:rippleSpeed="100"
+                android:text="@string/log_out"
+                android:layout_marginTop="20dp"
+                style="@style/MW.CommonBtn"/>
 
-    <include android:id="@+id/loading"
-        layout="@layout/loading"/>
+        </LinearLayout>
 
-</FrameLayout>
+        <include android:id="@+id/loading"
+            layout="@layout/loading"/>
+
+    </FrameLayout>
+
+</ScrollView>

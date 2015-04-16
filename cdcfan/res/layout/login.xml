@@ -1,24 +1,12 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
     style="@style/MM.CommonScrollView">
 
     <FrameLayout style="@style/MM">
 
         <LinearLayout style="@style/MM.CommonVerticalLL">
 
-            <FrameLayout style="@style/MZero"
-                android:layout_height="128dp"
-                android:background="@color/blue">
-
-                <TextView style="@style/WW"
-                    android:text="@string/app_name"
-                    android:textSize="30dp"
-                    android:textColor="@color/white"
-                    android:layout_gravity="center_horizontal|bottom"
-                    android:drawableLeft="@drawable/dinner_72"
-                    android:layout_marginBottom="20dp"
-                    android:drawablePadding="10dp"/>
-
-            </FrameLayout>
+            <include layout="@layout/header"/>
 
             <LinearLayout style="@style/MW"
                 android:layout_marginTop="100dp"
@@ -26,7 +14,6 @@
                 android:layout_marginRight="10dp">
 
                 <TextView
-                    android:id="@+id/basic_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/username"
@@ -43,14 +30,12 @@
 
             <com.gc.materialdesign.views.ButtonRectangle
                 android:id="@+id/login"
-                style="@style/MW"
+                materialdesign:rippleSpeed="100"
+                style="@style/MW.CommonBtn"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@color/blue"
-                android:textColor="@color/white"
-                android:text="@string/login"
-                android:textSize="20sp"/>
+                android:text="@string/login"/>
 
         </LinearLayout>
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--<string name="portal">http://10.64.41.155:8000</string>-->
-    <string name="portal">http://10.64.79.161:21700</string>
-    <!--<string name="portal">http://cdcfan/api/user-search</string>-->
+    <!--<string name="portal">http://10.64.79.161:21700</string>-->
+    <string name="portal">http://10.206.131.12</string>
 
     <string name="login_path">api/user-search</string>
     <string name="login_param">identity</string>

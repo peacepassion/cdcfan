@@ -5,10 +5,9 @@ import android.content.res.Resources;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import com.example.cdcfan.UserService.UserServiceCallback;
+import com.gc.materialdesign.views.Button;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -17,7 +16,6 @@ import java.io.UnsupportedEncodingException;
 public class OrderActivity extends BaseActivity implements UserServiceCallback, OnClickListener {
 
     private TextView mBasicInfo;
-    private EditText mTypeSelector;
     private Button mOrderBtn;
     private Button mLogoutBtn;
     private OrderResult mOrderResult;
@@ -44,9 +42,8 @@ public class OrderActivity extends BaseActivity implements UserServiceCallback, 
     @Override
     protected void initView() {
         super.initView();
-        mBasicInfo = (TextView) findViewById(R.id.basic_info);
+        mBasicInfo = (TextView) findViewById(R.id.title);
         mBasicInfo.setText(mUser.name + " / " + mUser.depcode);
-        mTypeSelector = (EditText) findViewById(R.id.counter);
         mOrderBtn = (Button) findViewById(R.id.order);
         mOrderBtn.setOnClickListener(this);
         mLogoutBtn = (Button) findViewById(R.id.log_out);
@@ -99,7 +96,7 @@ public class OrderActivity extends BaseActivity implements UserServiceCallback, 
         if (flag && parseResult(jsonBody)) {
             showOrderSuccPage(true);
         } else {
-            showOrderFailPage(false);
+            showOrderFailPage(true);
         }
     }
 
@@ -139,8 +136,9 @@ public class OrderActivity extends BaseActivity implements UserServiceCallback, 
     }
 
     private void showOrderSuccPage(boolean flag) {
-        // TODO
-        showLoadingPage(false);
+        if (flag) {
+            showToast(mRes.getString(R.string.order_succ));
+        }
     }
 
     private void showOrderFailPage(boolean flag) {

@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TextView;
 import com.example.cdcfan.UserService.UserServiceCallback;
+import com.gc.materialdesign.views.Button;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,9 +47,10 @@ public class CancelOrderActivity extends BaseActivity implements OnClickListener
         mHasOrderTV = (TextView) findViewById(R.id.has_order);
         mCancelView = findViewById(R.id.cancel_view);
 
+        ((TextView) findViewById(R.id.title)).setText(mRes.getString(R.string.check_order));
+
         showLoadingPage(true);
-        showErrorPage(false);
-        showCancelOrderPage(false);
+        showDisableBtnPage(false, "");
 
         startGetOrderInfo();
     }
@@ -63,34 +64,34 @@ public class CancelOrderActivity extends BaseActivity implements OnClickListener
     private void startGetOrderInfo() {
         if (mPSID.equals("")) {
             showLoadingPage(false);
-            showErrorPage(true);
+            showDisableBtnPage(true, mRes.getString(R.string.check_order_fail));
         } else {
             mUserService.startCheckOrderID(mPSID);
         }
     }
 
-    private void showCancelOrderPage(boolean flag) {
+    private void showAbleBtnPage(boolean flag) {
         if (flag) {
-            mCancelView.setVisibility(View.VISIBLE);
             mHasOrderTV.setText(String.format(mRes.getString(R.string.has_order), 1));
-        } else {
-            mCancelView.setVisibility(View.GONE);
         }
     }
 
-    private void showErrorPage(boolean flag) {
+    private void showDisableBtnPage(boolean flag, String content) {
         if (flag) {
-            showToast(mRes.getString(R.string.check_order_fail));
+            showToast(content);
+            mCancelBtn.setEnabled(false);
+            mHasOrderTV.setText(content);
         }
     }
 
     @Override
     public void onClick(View v) {
-        int id = v.getId();
+    int id = v.getId();
         if (id == R.id.cancel) {
             Log.d("CDC", "start cancel order");
             try {
                 mUserService.startCancelOrder(mOrderList.get(0).mOrderID);
+                showLoadingPage(true);
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -109,24 +110,30 @@ public class CancelOrderActivity extends BaseActivity implements OnClickListener
     public void onCheckOrderReturn(boolean flag, String jsonBody) {
         Log.d("CDC", "check order return, flag: " + flag + ", body: " + jsonBody);
         showLoadingPage(false);
-        if (flag && parseResult(jsonBody)) {
-            showCancelOrderPage(true);
+        if (flag) {
+            if (parseCheckOrderResult(jsonBody)) {
+                showAbleBtnPage(true);
+            } else {
+                showDisableBtnPage(true, mRes.getString(R.string.check_order_fail2));
+            }
         } else {
-            showErrorPage(true);
+            showDisableBtnPage(true, mRes.getString(R.string.check_order_fail));
         }
     }
 
     @Override
     public void onCancelOrderReturn(boolean flag, String jsonBody) {
         Log.d("CDC", "cancel order return, flag: " + flag + ", body: " + jsonBody);
+        showLoadingPage(false);
         if (flag) {
+            showDisableBtnPage(true, mRes.getString(R.string.cancel_order_succ));
             showToast(mRes.getString(R.string.cancel_order_succ));
         } else {
-            showErrorPage(true);
+            showDisableBtnPage(true, mRes.getString(R.string.cancel_order_fail));
         }
     }
 
-    private boolean parseResult(String jsonBody) {
+    private boolean parseCheckOrderResult(String jsonBody) {
         try {
             JSONArray arr = new JSONArray(jsonBody);
             for (int i = 0; i < arr.length(); ++i) {

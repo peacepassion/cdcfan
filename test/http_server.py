@@ -3,6 +3,7 @@
 import SimpleHTTPServer
 import SocketServer
 import urlparse
+import time
 
 import my_logging
 
@@ -18,12 +19,11 @@ class MyHttpHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         client_info = self.get_client_basic_info()
         logger.debug(client_info)
         logger.debug('basic info <<<<<<<')
+        time.sleep(3)
         self.send_response(200)
         self.end_headers()
-        if self.path.find('user-search'):
-            self.wfile.write('''{"psid": 23974, "cnname": "\u6768\u5f6a", "name": "Salt Yang", "enname": "Salt Yang", "depcode": "CHT.5621E"}''')
-        else:
-            self.wfile.write('''[{"orderid": 127, "status": "p", "foodprice": 20, "delivery": "e", "foodname": "\u76d2\u996d"}]''')
+        # self.wfile.write('''{"psid": 23974, "cnname": "\u6768\u5f6a", "name": "Salt Yang", "enname": "Salt Yang", "depcode": "CHT.5621E"}''')
+        # self.wfile.write('''[{"orderid": "", "status": "p", "foodprice": 20, "delivery": "e", "foodname": "\u76d2\u996d"}]''')
 
 
     def do_POST(self):
@@ -32,6 +32,7 @@ class MyHttpHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         client_info = self.get_client_basic_info()
         logger.debug(client_info)
         logger.debug('basic info <<<<<<<')
+        time.sleep(3)
         self.send_response(200)
         self.end_headers()
         self.wfile.write('''{"exceed_count": 1, "rejected_count": 0, "succeed_count": 0, "failure_count": 0}''')

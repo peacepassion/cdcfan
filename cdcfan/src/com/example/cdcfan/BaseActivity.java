@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.MenuItem;
+import com.gc.materialdesign.widgets.SnackBar;
 
 /**
  * Created by peace_da on 2015/4/15.
@@ -33,6 +35,7 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
     }
 
     protected void initView() {
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mLoadingView = findViewById(R.id.loading);
         showLoadingPage(false);
     }
@@ -42,7 +45,15 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
     }
 
     protected void showToast(String content) {
-        Toast.makeText(this, content, Toast.LENGTH_SHORT).show();
+        new SnackBar(this, content).show();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

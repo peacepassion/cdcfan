@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MZero"
+    android:layout_height="160dp"
+    android:background="@color/blue">
+
+    <TextView android:id="@+id/title"
+        style="@style/WW"
+        android:text="@string/app_name"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal|bottom"
+        android:drawableLeft="@drawable/dinner_72"
+        android:layout_marginBottom="20dp"
+        android:drawablePadding="10dp"/>
+
+</FrameLayout>
