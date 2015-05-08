@@ -1,10 +1,11 @@
-package com.example.cdcfan;
+package com.example.cdcfan.ui;
 
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import com.example.cdcfan.R;
 import com.example.cdcfan.UserService.UserServiceCallback;
 import com.gc.materialdesign.views.Button;
 import org.json.JSONArray;

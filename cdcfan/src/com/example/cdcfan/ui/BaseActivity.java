@@ -1,11 +1,13 @@
-package com.example.cdcfan;
+package com.example.cdcfan.ui;
 
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
+import com.example.cdcfan.config.PreferenceHelper;
+import com.example.cdcfan.R;
+import com.example.cdcfan.UserService;
 import com.gc.materialdesign.widgets.SnackBar;
 
 /**

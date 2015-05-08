@@ -1,4 +1,4 @@
-package com.example.cdcfan;
+package com.example.cdcfan.config;
 
 /**
  * Created by peace_da on 2015/4/15.
