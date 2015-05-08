@@ -6,20 +6,21 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import com.example.cdcfan.R;
-import com.example.cdcfan.UserService.UserServiceCallback;
+import com.example.cdcfan.httptask.GetHttpTask;
+import com.example.cdcfan.httptask.HttpTaskCallback;
+import com.example.cdcfan.httptask.PostHttpTask;
 import com.gc.materialdesign.views.Button;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by peace_da on 2015/4/15.
  */
-public class CancelOrderActivity extends BaseActivity implements OnClickListener, UserServiceCallback {
+public class CancelOrderActivity extends BaseActivity implements OnClickListener {
 
     public Button mCancelBtn;
     private String mPSID;
@@ -59,7 +60,6 @@ public class CancelOrderActivity extends BaseActivity implements OnClickListener
     @Override
     protected void onResume() {
         super.onResume();
-        mUserService.setListener(this);
     }
 
     private void startGetOrderInfo() {
@@ -67,7 +67,23 @@ public class CancelOrderActivity extends BaseActivity implements OnClickListener
             showLoadingPage(false);
             showDisableBtnPage(true, mRes.getString(R.string.check_order_fail));
         } else {
-            mUserService.startCheckOrderID(mPSID);
+            new GetHttpTask(this, new HttpTaskCallback() {
+                @Override
+                public void onSucc(int statusCode, String responseBody) {
+                    showLoadingPage(false);
+                    if (parseCheckOrderResult(responseBody)) {
+                        showAbleBtnPage(true);
+                    } else {
+                        showDisableBtnPage(true, mRes.getString(R.string.check_order_fail2));
+                    }
+                }
+
+                @Override
+                public void onErr(int responseCode, String responseBody) {
+                    showLoadingPage(false);
+                    showDisableBtnPage(true, mRes.getString(R.string.check_order_fail2));
+                }
+            }, mConst.getDomain(), mConst.getCheckOrderPath(), mConst.getCheckOrderParams(mPSID)).execute();
         }
     }
 
@@ -87,50 +103,24 @@ public class CancelOrderActivity extends BaseActivity implements OnClickListener
 
     @Override
     public void onClick(View v) {
-    int id = v.getId();
+        int id = v.getId();
         if (id == R.id.cancel) {
             Log.d("CDC", "start cancel order");
-            try {
-                mUserService.startCancelOrder(mOrderList.get(0).mOrderID);
-                showLoadingPage(true);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+            new PostHttpTask(this, new HttpTaskCallback() {
+                @Override
+                public void onSucc(int statusCode, String responseBody) {
+                    showLoadingPage(false);
+                    showDisableBtnPage(true, mRes.getString(R.string.cancel_order_succ));
+                    showToast(mRes.getString(R.string.cancel_order_succ));
+                }
 
-    @Override
-    public void onCheckUserReturn(boolean flag, String jsonBody) {
-    }
-
-    @Override
-    public void onOrderReturn(boolean flag, String jsonBody) {
-    }
-
-    @Override
-    public void onCheckOrderReturn(boolean flag, String jsonBody) {
-        Log.d("CDC", "check order return, flag: " + flag + ", body: " + jsonBody);
-        showLoadingPage(false);
-        if (flag) {
-            if (parseCheckOrderResult(jsonBody)) {
-                showAbleBtnPage(true);
-            } else {
-                showDisableBtnPage(true, mRes.getString(R.string.check_order_fail2));
-            }
-        } else {
-            showDisableBtnPage(true, mRes.getString(R.string.check_order_fail));
-        }
-    }
-
-    @Override
-    public void onCancelOrderReturn(boolean flag, String jsonBody) {
-        Log.d("CDC", "cancel order return, flag: " + flag + ", body: " + jsonBody);
-        showLoadingPage(false);
-        if (flag) {
-            showDisableBtnPage(true, mRes.getString(R.string.cancel_order_succ));
-            showToast(mRes.getString(R.string.cancel_order_succ));
-        } else {
-            showDisableBtnPage(true, mRes.getString(R.string.cancel_order_fail));
+                @Override
+                public void onErr(int responseCode, String responseBody) {
+                    showLoadingPage(false);
+                    showDisableBtnPage(true, mRes.getString(R.string.cancel_order_fail));
+                }
+            }, mConst.getDomain(), mConst.getCancelOrderPath(), mConst.getCancelOrderParams(mOrderList.get(0).mOrderID)).execute();
+            showLoadingPage(true);
         }
     }
 

@@ -7,14 +7,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import com.example.cdcfan.R;
-import com.example.cdcfan.UserService.UserServiceCallback;
+import com.example.cdcfan.httptask.HttpTaskCallback;
+import com.example.cdcfan.httptask.PostHttpTask;
 import com.gc.materialdesign.views.Button;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
-
-public class OrderActivity extends BaseActivity implements UserServiceCallback, OnClickListener {
+public class OrderActivity extends BaseActivity implements OnClickListener, HttpTaskCallback {
 
     private TextView mBasicInfo;
     private Button mOrderBtn;
@@ -59,19 +58,13 @@ public class OrderActivity extends BaseActivity implements UserServiceCallback, 
     @Override
     protected void onResume() {
         super.onResume();
-        mUserService.setListener(this);
     }
 
     @Override
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.order) {
-            try {
-                mUserService.startOrder(mUser.psid, mUser.depcode, mRes.getString(R.string.order_param_order_dev_val));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                showToast("fail to build post body");
-            }
+            new PostHttpTask(this, this, mConst.getDomain(), mConst.getOrderPath(), mConst.getOrderParams(mUser.psid, mUser.depcode, mRes.getString(R.string.order_param_order_dev_val))).execute();
             showLoadingPage(true);
         } else if (id == R.id.log_out) {
             mPre.setKeyLastUserName("");
@@ -87,14 +80,10 @@ public class OrderActivity extends BaseActivity implements UserServiceCallback, 
     }
 
     @Override
-    public void onCheckUserReturn(boolean flag, String jsonBody) {
-    }
-
-    @Override
-    public void onOrderReturn(boolean flag, String jsonBody) {
-        Log.d("CDC", "order result: " + flag + ", body: " + jsonBody);
+    public void onSucc(int statusCode, String responseBody) {
+        Log.d("CDC",  "response: " + responseBody);
         showLoadingPage(false);
-        if (flag && parseResult(jsonBody)) {
+        if (parseResult(responseBody)) {
             showOrderSuccPage(true);
         } else {
             showOrderFailPage(true);
@@ -102,13 +91,9 @@ public class OrderActivity extends BaseActivity implements UserServiceCallback, 
     }
 
     @Override
-    public void onCheckOrderReturn(boolean flag, String jsonBody) {
-
-    }
-
-    @Override
-    public void onCancelOrderReturn(boolean flag, String jsonBody) {
-
+    public void onErr(int responseCode, String responseBody) {
+        Log.d("CDC",  "response: " + responseBody);
+        showLoadingPage(false);
     }
 
     private boolean parseResult(String jsonObj) {

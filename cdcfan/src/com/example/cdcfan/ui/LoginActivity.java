@@ -8,13 +8,15 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.example.cdcfan.R;
-import com.example.cdcfan.UserService.UserServiceCallback;
+import com.example.cdcfan.httptask.GetHttpTask;
+import com.example.cdcfan.httptask.HttpTaskCallback;
+import com.example.cdcfan.httptask.UserService.UserServiceCallback;
 import com.gc.materialdesign.views.Button;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class LoginActivity extends BaseActivity implements OnClickListener, UserServiceCallback {
+public class LoginActivity extends BaseActivity implements OnClickListener, HttpTaskCallback {
 
     public static final String KEY_PSID = "key_psid";
     public static final String KEY_NAME = "name";
@@ -61,7 +63,6 @@ public class LoginActivity extends BaseActivity implements OnClickListener, User
     @Override
     protected void onResume() {
         super.onResume();
-        mUserService.setListener(this);
     }
 
     @Override
@@ -78,25 +79,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener, User
     }
 
     private void startLogin() {
-        mUserService.startCheckUser(mUserName);
+        new GetHttpTask(this, this, mConst.getDomain(), mConst.getLoginPath(), mConst.getLoginParams(mUserName)).execute();
         showLoadingPage(true);
-    }
-
-    @Override
-    public void onCheckUserReturn(boolean flag, String jsonObj) {
-        Log.d("CDC", "user check task ends. result: " + flag);
-        showLoadingPage(false);
-        if (flag) {
-            User user = new User();
-            if (parseResult(jsonObj, user)) {
-                Log.d("CDC", "get user: " + user);
-                startOrderActivity(user);
-                saveUserInfo(user);
-                finish();
-                return;
-            }
-        }
-        showToast(String.format(mRes.getString(R.string.fail), mUserName));
     }
 
     private void startOrderActivity(User user) {
@@ -110,21 +94,6 @@ public class LoginActivity extends BaseActivity implements OnClickListener, User
 
     private void saveUserInfo(User user) {
         mPre.setKeyLastUserName(user.name);
-    }
-
-    @Override
-    public void onOrderReturn(boolean flag, String jsonBody) {
-
-    }
-
-    @Override
-    public void onCheckOrderReturn(boolean flag, String jsonBody) {
-
-    }
-
-    @Override
-    public void onCancelOrderReturn(boolean flag, String jsonBody) {
-
     }
 
     boolean parseResult(String jsonObj, User user) {
@@ -144,4 +113,22 @@ public class LoginActivity extends BaseActivity implements OnClickListener, User
         return false;
     }
 
+    @Override
+    public void onSucc(int statusCode, String responseBody) {
+        Log.d("CDC", "user check task ends. result: " + true);
+        showLoadingPage(false);
+        User user = new User();
+        if (parseResult(responseBody, user)) {
+            Log.d("CDC", "get user: " + user);
+            startOrderActivity(user);
+            saveUserInfo(user);
+            finish();
+        }
+    }
+
+    @Override
+    public void onErr(int responseCode, String responseBody) {
+        showLoadingPage(false);
+        showToast(String.format(mRes.getString(R.string.fail), mUserName));
+    }
 }

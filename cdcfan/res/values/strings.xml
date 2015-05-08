@@ -13,7 +13,7 @@
     <string name="xiadan">下单</string>
     <string name="wancan">晚餐</string>
     <string name="success">开饭了</string>
-    <string name="fail">用户名: %s 登陆失败</string>
+    <string name="fail">用户名: %s 登陆失败，请检查网络，接入CDC Office网络</string>
     <string name="fail_empty">请输入用户名</string>
     <string name="log_out">退出登陆</string>
 

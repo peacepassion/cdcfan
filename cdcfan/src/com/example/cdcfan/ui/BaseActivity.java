@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
-import com.example.cdcfan.config.PreferenceHelper;
 import com.example.cdcfan.R;
-import com.example.cdcfan.UserService;
+import com.example.cdcfan.config.Const;
+import com.example.cdcfan.config.PreferenceHelper;
 import com.gc.materialdesign.widgets.SnackBar;
 
 /**
@@ -16,7 +16,7 @@ import com.gc.materialdesign.widgets.SnackBar;
 public abstract class BaseActivity extends SherlockFragmentActivity {
 
     private View mLoadingView;
-    protected UserService mUserService;
+    protected Const mConst;
     protected PreferenceHelper mPre;
     protected Resources mRes;
 
@@ -31,9 +31,9 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
     protected abstract int getLayout();
 
     protected void initBasicData() {
-        mUserService = UserService.getInstance(this);
         mPre = PreferenceHelper.getInstance(this);
         mRes = getResources();
+        mConst = Const.getInstance(this);
     }
 
     protected void initView() {
