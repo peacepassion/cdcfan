@@ -18,8 +18,10 @@ public class PostHttpTask extends BaseHttpTask {
 
         mUrl = Uri.parse(domain).buildUpon().appendEncodedPath(path).build().toString();
         mParams = new RequestParams();
-        for (String key : params.keySet()) {
-            mParams.put(key, params.get(key));
+        if (params != null) {
+            for (String key : params.keySet()) {
+                mParams.put(key, params.get(key));
+            }
         }
     }
 

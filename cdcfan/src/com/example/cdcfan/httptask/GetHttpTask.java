@@ -14,8 +14,10 @@ public class GetHttpTask extends BaseHttpTask {
     public GetHttpTask(Context ctx, HttpTaskCallback listener, String domain, String path, Map<String, String> params) {
         super(ctx, listener);
         Builder builder = Uri.parse(domain).buildUpon().appendEncodedPath(path);
-        for (String key : params.keySet()) {
-            builder.appendQueryParameter(key, params.get(key));
+        if (params != null) {
+            for (String key : params.keySet()) {
+                builder.appendQueryParameter(key, params.get(key));
+            }
         }
         mUrl = builder.build().toString();
     }

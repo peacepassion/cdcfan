@@ -9,6 +9,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.example.cdcfan.R;
 import com.example.cdcfan.config.Const;
 import com.example.cdcfan.config.PreferenceHelper;
+import com.example.cdcfan.utils.LogHelper;
 import com.gc.materialdesign.widgets.SnackBar;
 
 /**
@@ -16,7 +17,8 @@ import com.gc.materialdesign.widgets.SnackBar;
  */
 public abstract class BaseActivity extends SherlockFragmentActivity {
 
-    private View mLoadingView;
+    protected final String LOG_TAG = LogHelper.getNativeSimpleLogTag(this.getClass(), LogHelper.DEFAULT_LOG_TAG);
+
     protected Const mConst;
     protected PreferenceHelper mPre;
     protected Resources mRes;
@@ -39,13 +41,6 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
     }
 
     protected void initView() {
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mLoadingView = findViewById(R.id.loading);
-        showLoadingPage(false);
-    }
-
-    protected void showLoadingPage(boolean flag) {
-        mLoadingView.setVisibility(flag ? View.VISIBLE : View.GONE);
     }
 
     protected void showToast(String content) {

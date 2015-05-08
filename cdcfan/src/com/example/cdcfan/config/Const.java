@@ -37,6 +37,10 @@ public class Const {
         return mContext.getResources().getString(R.string.portal);
     }
 
+    public String getVersionPath() {
+        return mRes.getString(R.string.version_info_path);
+    }
+
     public String getLoginPath() {
         return mContext.getResources().getString(R.string.login_path);
     }

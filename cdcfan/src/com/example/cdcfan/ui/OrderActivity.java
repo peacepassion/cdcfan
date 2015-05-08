@@ -13,7 +13,7 @@ import com.gc.materialdesign.views.Button;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class OrderActivity extends BaseActivity implements OnClickListener, HttpTaskCallback {
+public class OrderActivity extends LoadingBaseActivity implements OnClickListener, HttpTaskCallback {
 
     private TextView mBasicInfo;
     private Button mOrderBtn;

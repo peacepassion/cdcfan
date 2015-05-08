@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Created by peace_da on 2015/4/15.
  */
-public class CancelOrderActivity extends BaseActivity implements OnClickListener {
+public class CancelOrderActivity extends LoadingBaseActivity implements OnClickListener {
 
     public Button mCancelBtn;
     private String mPSID;

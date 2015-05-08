@@ -10,13 +10,12 @@ import android.widget.TextView;
 import com.example.cdcfan.R;
 import com.example.cdcfan.httptask.GetHttpTask;
 import com.example.cdcfan.httptask.HttpTaskCallback;
-import com.example.cdcfan.httptask.UserService.UserServiceCallback;
 import com.gc.materialdesign.views.Button;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class LoginActivity extends BaseActivity implements OnClickListener, HttpTaskCallback {
+public class LoginActivity extends LoadingBaseActivity implements OnClickListener, HttpTaskCallback {
 
     public static final String KEY_PSID = "key_psid";
     public static final String KEY_NAME = "name";
