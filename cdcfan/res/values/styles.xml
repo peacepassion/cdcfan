@@ -5,7 +5,8 @@
         <item name="android:actionBarStyle">@style/MyActionBar</item>
     </style>
 
-    <style name="MyFullScreenTheme" parent="Theme.Sherlock.Light.NoActionBar"/>
+    <style name="MyFullScreenTheme" parent="Theme.Sherlock.Light.NoActionBar">
+    </style>
 
     <style name="MyActionBar" parent="Widget.Sherlock.Light.ActionBar">
         <item name="background">@color/blue</item>
