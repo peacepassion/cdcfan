@@ -1,5 +1,6 @@
 package com.example.cdcfan.ui;
 
+import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,7 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         initBasicData();
         initView();
     }
