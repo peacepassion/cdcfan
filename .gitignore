@@ -44,3 +44,5 @@ proguard/
 
 # Log Files
 *.log
+
+*.pyc
