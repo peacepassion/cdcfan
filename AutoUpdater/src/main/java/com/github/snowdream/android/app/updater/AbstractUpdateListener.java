@@ -79,6 +79,12 @@ public abstract class AbstractUpdateListener extends TaskListener<Integer, Updat
     public abstract void onShowUpdateUI(final UpdateInfo info);
 
     /**
+     * show when force update
+     * @param info
+     */
+    public abstract void onShowForceUpdateUI(final UpdateInfo info);
+
+    /**
      * It's the latest app,or there is no need to update.
      */
     public abstract void onShowNoUpdateUI();

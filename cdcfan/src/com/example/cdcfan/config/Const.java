@@ -41,6 +41,11 @@ public class Const {
         return mRes.getString(R.string.version_info_path);
     }
 
+    public String getUpdataInfoUrl() {
+//        return getDomain() + "/" + getVersionPath();
+        return "http://10.64.24.65:8000/update.json";
+    }
+
     public String getLoginPath() {
         return mContext.getResources().getString(R.string.login_path);
     }

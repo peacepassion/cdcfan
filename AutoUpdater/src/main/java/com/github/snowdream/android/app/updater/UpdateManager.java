@@ -196,6 +196,8 @@ public class UpdateManager {
                                 .trustAllHosts()
                                 .body(HttpRequest.CHARSET_UTF8);
 
+                        Log.d("update info, server returns: " + json);
+
                         UpdateJsonParser jsonParser = new UpdateJsonParser();
                         info = jsonParser.parse(json);
                     } catch (HttpRequest.HttpRequestException e) {
@@ -233,18 +235,22 @@ public class UpdateManager {
                     SharedPreferences sp = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
                     String skip_version_code = sp.getString(PREFS_KEY_SKIP_CHECK_UPDATE_VERSION_CODE, "-1");
 
-                    if (Integer.parseInt(updateInfo.getVersionCode()) > versionCode) {
-                        if (!updateInfo.isForceUpdate() && !options.shouldForceUpdate() && skip_version_code.equalsIgnoreCase(updateInfo.getVersionCode())) {
-                            ((AbstractUpdateListener) listener).onShowNoUpdateUI();
-                        } else {
-                            if (options.shouldAutoUpdate() || updateInfo.isAutoUpdate()) {
-                                informUpdate(updateInfo);
-                            } else {
-                                ((AbstractUpdateListener) listener).onShowUpdateUI(updateInfo);
-                            }
-                        }
+                    if (updateInfo.isForceUpdate()) {
+                        ((AbstractUpdateListener) listener).onShowForceUpdateUI(updateInfo);
                     } else {
-                        ((AbstractUpdateListener) listener).onShowNoUpdateUI();
+                        if (Integer.parseInt(updateInfo.getVersionCode()) > versionCode) {
+                            if (!updateInfo.isForceUpdate() && !options.shouldForceUpdate() && skip_version_code.equalsIgnoreCase(updateInfo.getVersionCode())) {
+                                ((AbstractUpdateListener) listener).onShowNoUpdateUI();
+                            } else {
+                                if (options.shouldAutoUpdate() || updateInfo.isAutoUpdate()) {
+                                    informUpdate(updateInfo);
+                                } else {
+                                    ((AbstractUpdateListener) listener).onShowUpdateUI(updateInfo);
+                                }
+                            }
+                        } else {
+                            ((AbstractUpdateListener) listener).onShowNoUpdateUI();
+                        }
                     }
                 } catch (PackageManager.NameNotFoundException e) {
                     e.printStackTrace();
@@ -272,7 +278,7 @@ public class UpdateManager {
             public void onProgressUpdate(Integer... values) {
                 super.onProgressUpdate(values);
                 handler.obtainMessage(
-                        MSG_SHOW_UPDATE_PROGRESS_UI, values[0], -1,info).sendToTarget();
+                        MSG_SHOW_UPDATE_PROGRESS_UI, values[0], -1, info).sendToTarget();
             }
 
             @Override
@@ -352,7 +358,7 @@ public class UpdateManager {
                     break;
                 case MSG_SHOW_UPDATE_PROGRESS_UI:
                     if (downloadTask != null) {
-                        listener.onShowUpdateProgressUI((UpdateInfo) msg.obj,downloadTask, msg.arg1);
+                        listener.onShowUpdateProgressUI((UpdateInfo) msg.obj, downloadTask, msg.arg1);
                     }
                     break;
                 case MSG_INFORM_UPDATE:

@@ -3,10 +3,7 @@ package com.example.cdcfan.ui;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.View;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
-import com.example.cdcfan.R;
+import android.support.v4.app.FragmentActivity;
 import com.example.cdcfan.config.Const;
 import com.example.cdcfan.config.PreferenceHelper;
 import com.example.cdcfan.utils.LogHelper;
@@ -15,7 +12,7 @@ import com.gc.materialdesign.widgets.SnackBar;
 /**
  * Created by peace_da on 2015/4/15.
  */
-public abstract class BaseActivity extends SherlockFragmentActivity {
+public abstract class BaseActivity extends FragmentActivity {
 
     protected final String LOG_TAG = LogHelper.getNativeSimpleLogTag(this.getClass(), LogHelper.DEFAULT_LOG_TAG);
 
@@ -47,12 +44,4 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
         new SnackBar(this, content).show();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == android.R.id.home) {
-            onBackPressed();
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

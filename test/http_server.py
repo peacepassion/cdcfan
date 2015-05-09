@@ -48,5 +48,5 @@ class MyHttpHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
 
 
-SocketServer.TCPServer(("", PORT), MyHttpHandler).serve_forever()
+SocketServer.TCPServer(("", PORT), SimpleHTTPServer.SimpleHTTPRequestHandler).serve_forever()
 

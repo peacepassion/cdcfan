@@ -76,6 +76,11 @@ public class DefaultUpdateListener extends AbstractUpdateListener {
     }
 
     @Override
+    public void onShowForceUpdateUI(UpdateInfo info) {
+        onShowUpdateUI(info);
+    }
+
+    @Override
     public void onShowNoUpdateUI() {
         Context context = getContext();
         if (context != null) {
