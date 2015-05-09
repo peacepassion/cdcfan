@@ -117,11 +117,6 @@ public class StartActivity extends BaseActivity implements HttpTaskCallback {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-
-    }
-
     private class UpdateListener extends DefaultUpdateListener {
 
         @Override

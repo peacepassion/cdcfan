@@ -46,3 +46,4 @@ proguard/
 *.log
 
 *.pyc
+test/
