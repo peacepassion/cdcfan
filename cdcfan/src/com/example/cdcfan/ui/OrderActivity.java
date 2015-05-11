@@ -123,13 +123,13 @@ public class OrderActivity extends LoadingBaseActivity implements OnClickListene
 
     private void showOrderSuccPage(boolean flag) {
         if (flag) {
-            showToast(mRes.getString(R.string.order_succ));
+            showFixToast(mRes.getString(R.string.order_succ));
         }
     }
 
     private void showOrderFailPage(boolean flag) {
         if (flag) {
-            showToast(String.format(mRes.getString(R.string.order_fail), mOrderResult.getDescription(mRes)));
+            showFixToast(String.format(mRes.getString(R.string.order_fail), mOrderResult.getDescription(mRes)));
         }
     }
 

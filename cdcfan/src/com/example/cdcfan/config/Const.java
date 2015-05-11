@@ -43,7 +43,7 @@ public class Const {
 
     public String getUpdataInfoUrl() {
 //        return getDomain() + "/" + getVersionPath();
-        return "http://10.64.24.65:8000/update.json";
+        return "http://10.64.24.65:8001/update.json";
     }
 
     public String getLoginPath() {

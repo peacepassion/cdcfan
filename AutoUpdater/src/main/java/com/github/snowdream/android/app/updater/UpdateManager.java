@@ -203,6 +203,7 @@ public class UpdateManager {
                     } catch (HttpRequest.HttpRequestException e) {
                         e.printStackTrace();
                         Log.e("HttpRequest.HttpRequestExceptio", e);
+                        handler.obtainMessage(MSG_ERROR, e).sendToTarget();
                     } catch (JsonSyntaxException e) {
                         e.printStackTrace();
                         Log.e("JsonSyntaxException", e);
@@ -223,13 +224,7 @@ public class UpdateManager {
                 try {
                     PackageInfo pinfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                     Integer versionCode = pinfo.versionCode; // 1
-                    String versionName = pinfo.versionName; // 1.0
-                    String packageName = context.getPackageName();
 
-                    if (options.shouldCheckPackageName() && !packageName.equals(updateInfo.getPackageName())) {
-                        ((AbstractUpdateListener) listener).onShowNoUpdateUI();
-                        return;
-                    }
                     String PREFS_NAME = context.getResources().getString(R.string.preference_name);
                     String PREFS_KEY_SKIP_CHECK_UPDATE_VERSION_CODE = context.getResources().getString(R.string.preference_key_skip_check_update_version_code);
                     SharedPreferences sp = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);

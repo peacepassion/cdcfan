@@ -4,6 +4,7 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.widget.Toast;
 import com.example.cdcfan.config.Const;
 import com.example.cdcfan.config.PreferenceHelper;
 import com.example.cdcfan.utils.LogHelper;
@@ -40,8 +41,12 @@ public abstract class BaseActivity extends FragmentActivity {
     protected void initView() {
     }
 
-    protected void showToast(String content) {
+    protected void showFixToast(String content) {
         new SnackBar(this, content).show();
+    }
+
+    protected void showRealToast(String content) {
+        Toast.makeText(this, content, Toast.LENGTH_SHORT).show();
     }
 
 }

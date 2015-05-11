@@ -70,7 +70,7 @@ public class LoginActivity extends LoadingBaseActivity implements OnClickListene
         if (id == R.id.login) {
             mUserName = mUserNameET.getText().toString();
             if (mUserName.equals("")) {
-                showToast(mRes.getString(R.string.fail_empty));
+                showFixToast(mRes.getString(R.string.fail_empty));
             } else {
                 startLogin();
             }
@@ -128,6 +128,6 @@ public class LoginActivity extends LoadingBaseActivity implements OnClickListene
     @Override
     public void onErr(int responseCode, String responseBody) {
         showLoadingPage(false);
-        showToast(String.format(mRes.getString(R.string.fail), mUserName));
+        showFixToast(String.format(mRes.getString(R.string.fail), mUserName));
     }
 }

@@ -130,6 +130,14 @@ public class StartActivity extends BaseActivity implements HttpTaskCallback {
         }
 
         @Override
+        public void onError(Throwable thr) {
+            super.onError(thr);
+            Log.d(LOG_TAG, "http error");
+            showRealToast(mRes.getString(R.string.conn_fail));
+            StartActivity.this.finish();
+        }
+
+        @Override
         public void onShowUpdateUI(final UpdateInfo info) {
             new MaterialDialog.Builder(StartActivity.this)
                     .title(mRes.getString(R.string.update_title2))

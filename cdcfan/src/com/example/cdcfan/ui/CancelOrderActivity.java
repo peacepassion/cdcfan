@@ -95,7 +95,7 @@ public class CancelOrderActivity extends LoadingBaseActivity implements OnClickL
 
     private void showDisableBtnPage(boolean flag, String content) {
         if (flag) {
-            showToast(content);
+            showFixToast(content);
             mCancelBtn.setEnabled(false);
             mHasOrderTV.setText(content);
         }
@@ -111,7 +111,7 @@ public class CancelOrderActivity extends LoadingBaseActivity implements OnClickL
                 public void onSucc(int statusCode, String responseBody) {
                     showLoadingPage(false);
                     showDisableBtnPage(true, mRes.getString(R.string.cancel_order_succ));
-                    showToast(mRes.getString(R.string.cancel_order_succ));
+                    showFixToast(mRes.getString(R.string.cancel_order_succ));
                 }
 
                 @Override
