@@ -37,13 +37,12 @@ public class Const {
         return mContext.getResources().getString(R.string.portal);
     }
 
-    public String getVersionPath() {
-        return mRes.getString(R.string.version_info_path);
+    public String getUpdatePath() {
+        return mRes.getString(R.string.update_path);
     }
 
-    public String getUpdataInfoUrl() {
-//        return getDomain() + "/" + getVersionPath();
-        return "http://10.64.24.65:8001/update.json";
+    public String getUpdateInfoUrl() {
+        return getDomain() + "/" + getUpdatePath();
     }
 
     public String getLoginPath() {

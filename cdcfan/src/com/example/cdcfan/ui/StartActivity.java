@@ -10,11 +10,9 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.MaterialDialog.ButtonCallback;
 import com.example.cdcfan.R;
-import com.example.cdcfan.httptask.GetHttpTask;
 import com.example.cdcfan.httptask.HttpTaskCallback;
 import com.gc.materialdesign.widgets.Dialog;
 import com.github.snowdream.android.app.DownloadTask;
-import com.github.snowdream.android.app.updater.AbstractUpdateListener;
 import com.github.snowdream.android.app.updater.DefaultUpdateListener;
 import com.github.snowdream.android.app.updater.UpdateFormat;
 import com.github.snowdream.android.app.updater.UpdateInfo;
@@ -45,7 +43,7 @@ public class StartActivity extends BaseActivity implements HttpTaskCallback {
     }
 
     private void checkAppAvailability() {
-        String url = mConst.getUpdataInfoUrl();
+        String url = mConst.getUpdateInfoUrl();
         Log.d(LOG_TAG, "check update info url: " + url);
         UpdateOptions options = new UpdateOptions.Builder(this)
                 .checkUrl(url)

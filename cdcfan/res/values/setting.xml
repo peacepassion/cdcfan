@@ -5,6 +5,8 @@
     <!--<string name="portal">http://10.206.131.12</string>-->
     <string name="portal">http://cdcfan</string>
 
+    <string name="update_path">media/android/version.json</string>
+
     <string name="login_path">api/user-search</string>
     <string name="login_param">identity</string>
 
@@ -20,5 +22,4 @@
     <string name="cancel_order_path">api/cancel-order</string>
     <string name="cancel_order_param_orderid">orderid</string>
 
-    <string name="version_info_path">media/page/android_version.txt</string>
 </resources>
