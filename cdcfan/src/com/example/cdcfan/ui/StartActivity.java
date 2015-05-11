@@ -172,7 +172,7 @@ public class StartActivity extends BaseActivity implements HttpTaskCallback {
         }
 
         @Override
-        public void onShowForceUpdateUI(UpdateInfo info) {
+        public void onShowForceUpdateUI(final UpdateInfo info) {
             new MaterialDialog.Builder(StartActivity.this)
                     .title(mRes.getString(R.string.update_title))
                     .content(info.getUpdateTips().get("zh_CN"))
@@ -182,6 +182,7 @@ public class StartActivity extends BaseActivity implements HttpTaskCallback {
                         @Override
                         public void onPositive(MaterialDialog dialog) {
                             Log.d(LOG_TAG, "start upgrade");
+                            informUpdate(info);
                             finish();
                         }
 
