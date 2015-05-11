@@ -1,11 +1,11 @@
-package com.example.cdcfan.config;
+package com.linuxclub.cdcfan.config;
 
 /**
  * Created by peace_da on 2015/5/8.
  */
 import android.content.Context;
 import android.content.res.Resources;
-import com.example.cdcfan.R;
+import com.linuxclub.cdcfan.R;
 
 import java.util.HashMap;
 import java.util.Map;

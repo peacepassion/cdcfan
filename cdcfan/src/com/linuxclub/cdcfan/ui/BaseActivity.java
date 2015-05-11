@@ -1,13 +1,13 @@
-package com.example.cdcfan.ui;
+package com.linuxclub.cdcfan.ui;
 
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
-import com.example.cdcfan.config.Const;
-import com.example.cdcfan.config.PreferenceHelper;
-import com.example.cdcfan.utils.LogHelper;
+import com.linuxclub.cdcfan.config.Const;
+import com.linuxclub.cdcfan.config.PreferenceHelper;
+import com.linuxclub.cdcfan.utils.LogHelper;
 import com.gc.materialdesign.widgets.SnackBar;
 
 /**

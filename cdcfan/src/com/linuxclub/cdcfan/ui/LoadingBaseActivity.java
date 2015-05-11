@@ -1,7 +1,7 @@
-package com.example.cdcfan.ui;
+package com.linuxclub.cdcfan.ui;
 
 import android.view.View;
-import com.example.cdcfan.R;
+import com.linuxclub.cdcfan.R;
 
 /**
  * Created by peace_da on 2015/5/8.

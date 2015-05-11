@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.cdcfan"
+    package="com.linuxclub.cdcfan"
     android:versionCode="1"
     android:versionName="1.0.0">
 
@@ -12,12 +12,12 @@
         android:targetSdkVersion="21"/>
 
     <application
-        android:name=".MyApplication"
+        android:name="com.linuxclub.cdcfan.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/logo2"
         android:label="@string/app_name"
         android:theme="@style/MyFullScreenTheme">
-        <activity android:name=".ui.StartActivity">
+        <activity android:name="com.linuxclub.cdcfan.ui.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -25,18 +25,18 @@
         </activity>
 
         <activity
-            android:name=".ui.LoginActivity"
+            android:name="com.linuxclub.cdcfan.ui.LoginActivity"
             android:windowSoftInputMode="stateHidden"
             android:label="@string/app_name">
         </activity>
 
         <activity
-            android:name=".ui.OrderActivity"
+            android:name="com.linuxclub.cdcfan.ui.OrderActivity"
             android:label="@string/title_activity_menu">
         </activity>
 
         <activity
-            android:name=".ui.CancelOrderActivity"
+            android:name="com.linuxclub.cdcfan.ui.CancelOrderActivity"
             android:label="@string/cancel_order"/>
     </application>
 

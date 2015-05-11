@@ -1,4 +1,4 @@
-package com.example.cdcfan.httptask;
+package com.linuxclub.cdcfan.httptask;
 
 /**
  * Created by peace_da on 2015/5/8.

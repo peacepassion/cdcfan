@@ -1,9 +1,9 @@
-package com.example.cdcfan.httptask;
+package com.linuxclub.cdcfan.httptask;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.Log;
-import com.example.cdcfan.utils.LogHelper;
+import com.linuxclub.cdcfan.utils.LogHelper;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import org.apache.http.Header;

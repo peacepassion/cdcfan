@@ -1,4 +1,4 @@
-package com.example.cdcfan.utils;
+package com.linuxclub.cdcfan.utils;
 
 
 import android.util.Log;

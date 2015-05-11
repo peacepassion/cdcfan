@@ -16,7 +16,7 @@
 
 package com.loopj.android.http;
 
-import com.example.cdcfan.BuildConfig;
+import com.linuxclub.cdcfan.BuildConfig;
 
 import java.io.UnsupportedEncodingException;
 

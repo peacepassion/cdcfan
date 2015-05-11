@@ -1,7 +1,7 @@
-package com.example.cdcfan;
+package com.linuxclub.cdcfan;
 
 import android.app.Application;
-import com.example.cdcfan.utils.LogHelper;
+import com.linuxclub.cdcfan.utils.LogHelper;
 
 /**
  * Created by peace_da on 2015/5/9.

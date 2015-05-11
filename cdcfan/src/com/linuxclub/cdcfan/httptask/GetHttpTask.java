@@ -1,4 +1,4 @@
-package com.example.cdcfan.httptask;
+package com.linuxclub.cdcfan.httptask;
 
 import android.content.Context;
 import android.net.Uri;

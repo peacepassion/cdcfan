@@ -1,14 +1,14 @@
-package com.example.cdcfan.ui;
+package com.linuxclub.cdcfan.ui;
 
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
-import com.example.cdcfan.R;
-import com.example.cdcfan.httptask.GetHttpTask;
-import com.example.cdcfan.httptask.HttpTaskCallback;
-import com.example.cdcfan.httptask.PostHttpTask;
+import com.linuxclub.cdcfan.R;
+import com.linuxclub.cdcfan.httptask.GetHttpTask;
+import com.linuxclub.cdcfan.httptask.HttpTaskCallback;
+import com.linuxclub.cdcfan.httptask.PostHttpTask;
 import com.gc.materialdesign.views.Button;
 import org.json.JSONArray;
 import org.json.JSONException;

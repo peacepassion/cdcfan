@@ -1,4 +1,4 @@
-package com.example.cdcfan.ui;
+package com.linuxclub.cdcfan.ui;
 
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.Toast;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.MaterialDialog.ButtonCallback;
-import com.example.cdcfan.R;
-import com.example.cdcfan.httptask.HttpTaskCallback;
+import com.linuxclub.cdcfan.R;
+import com.linuxclub.cdcfan.httptask.HttpTaskCallback;
 import com.gc.materialdesign.widgets.Dialog;
 import com.github.snowdream.android.app.DownloadTask;
 import com.github.snowdream.android.app.updater.DefaultUpdateListener;
