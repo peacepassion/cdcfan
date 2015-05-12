@@ -189,6 +189,7 @@ public class UpdateManager {
                 default:
                     try {
                         json = HttpRequest.get(url)
+                                .connectTimeout(30 * 1000)
                                 .followRedirects(true)
                                 .accept("application/json")
                                 .acceptCharset(HttpRequest.CHARSET_UTF8)
@@ -202,14 +203,19 @@ public class UpdateManager {
                         info = jsonParser.parse(json);
                     } catch (HttpRequest.HttpRequestException e) {
                         e.printStackTrace();
-                        Log.e("HttpRequest.HttpRequestExceptio", e);
+                        Log.e("HttpRequest.HttpRequestException", e);
                         handler.obtainMessage(MSG_ERROR, e).sendToTarget();
                     } catch (JsonSyntaxException e) {
                         e.printStackTrace();
                         Log.e("JsonSyntaxException", e);
+                        handler.obtainMessage(MSG_ERROR, e).sendToTarget();
                     } catch (UpdateException e) {
                         e.printStackTrace();
                         Log.e("UpdateException", e);
+                        handler.obtainMessage(MSG_ERROR, e).sendToTarget();
+                    } catch (Exception e) {
+                        Log.e("Exception", e);
+                        handler.obtainMessage(MSG_ERROR, e).sendToTarget();
                     }
                     break;
             }
