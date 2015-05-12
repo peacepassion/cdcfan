@@ -3,7 +3,7 @@
     <!--<string name="portal">http://10.64.41.155:8000</string>-->
     <!--<string name="portal">http://10.64.79.161:21700</string>-->
     <!--<string name="portal">http://10.206.131.12</string>-->
-    <string name="portal">http://cdcfan</string>
+    <string name="portal">http://cdcfan.tw.trendnet.org</string>
 
     <string name="update_path">media/android/version.json</string>
 
