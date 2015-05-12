@@ -14,7 +14,7 @@
     <string name="order_param_psid">psid</string>
     <string name="order_param_depcode">depcode</string>
     <string name="order_param_order">order</string>
-    <string name="order_param_order_dev_val">e-4</string>
+    <string name="order_param_order_dev_val">e-1</string>
 
     <string name="check_order_path">api/my-orders</string>
     <string name="check_order_param_psid">psid</string>
