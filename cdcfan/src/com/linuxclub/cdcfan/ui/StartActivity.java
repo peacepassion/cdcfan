@@ -137,6 +137,9 @@ public class StartActivity extends BaseActivity implements HttpTaskCallback {
 
         @Override
         public void onShowUpdateUI(final UpdateInfo info) {
+            // change the info url for the server returns only url path
+            info.setApkUrl(mConst.getDomain() + info.getApkUrl());
+            Log.d(LOG_TAG, "new apk download url: " + info.getApkUrl());
             new MaterialDialog.Builder(StartActivity.this)
                     .title(mRes.getString(R.string.update_title2))
                     .content(info.getUpdateTips().get("zh_CN"))
