@@ -46,7 +46,7 @@ public abstract class BaseActivity extends FragmentActivity {
     }
 
     protected void showRealToast(String content) {
-        Toast.makeText(this, content, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, content, Toast.LENGTH_LONG).show();
     }
 
 }

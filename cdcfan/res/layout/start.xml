@@ -15,7 +15,7 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_below="@id/logo"
-        android:background="@color/gray" />
+        android:background="@color/white" />
 
     <TextView android:text="@string/app_des"
         android:textColor="@color/white"
